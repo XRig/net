@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210409195224_InitialCreate")]
+    [Migration("20210409210406_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,22 +24,22 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Actual_End_Date")
+                    b.Property<DateTime>("Actual_end_date")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Created_By")
+                    b.Property<string>("Created_by")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Created_On")
+                    b.Property<DateTime>("Created_on")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Project_Name")
+                    b.Property<string>("Project_name")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Start_Date")
+                    b.Property<DateTime>("Start_date")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Target_End_Date")
+                    b.Property<DateTime>("Target_end_date")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Updated_by")

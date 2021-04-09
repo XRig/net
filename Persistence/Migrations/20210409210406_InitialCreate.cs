@@ -12,12 +12,12 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Project_Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Start_Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Target_End_Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Actual_End_Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Created_On = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Created_By = table.Column<string>(type: "TEXT", nullable: true),
+                    Project_name = table.Column<string>(type: "TEXT", nullable: true),
+                    Start_date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Target_end_date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Actual_end_date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Created_on = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Created_by = table.Column<string>(type: "TEXT", nullable: true),
                     Updated_on = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Updated_by = table.Column<string>(type: "TEXT", nullable: true)
                 },

@@ -16,19 +16,19 @@ namespace Persistence
             {
                 new Project
                 {
-                    Project_Name = "Bug Tracker",
-                    Start_Date = DateTime.Now,
-                    Target_End_Date = DateTime.Now.AddMonths(3),
-                    Created_On = DateTime.Now,
-                    Created_By = "Rex Righetti",
+                    Project_name = "Bug Tracker",
+                    Start_date = DateTime.Now,
+                    Target_end_date = DateTime.Now.AddMonths(3),
+                    Created_on = DateTime.Now,
+                    Created_by = "Rex Righetti",
                 },
                 new Project
                 {
-                    Project_Name = "Spotify Clone",
-                    Start_Date = DateTime.Now.AddMonths(-1),
-                    Target_End_Date = DateTime.Now,
-                    Created_On = DateTime.Now,
-                    Created_By = "Rex Righetti",
+                    Project_name = "Spotify Clone",
+                    Start_date = DateTime.Now.AddMonths(-1),
+                    Target_end_date = DateTime.Now,
+                    Created_on = DateTime.Now,
+                    Created_by = "Rex Righetti",
                 },
             };
 
