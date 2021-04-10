@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,5 +11,6 @@ namespace Persistence
         {
         }
         public DbSet<Project> Projects { get; set; }
+
     }
 }
