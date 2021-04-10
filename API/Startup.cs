@@ -16,6 +16,7 @@ using Persistence;
 using MediatR;
 using Application.Projects;
 using Application.Core;
+using API.Extensions;
 
 namespace API
 {
@@ -35,20 +36,7 @@ namespace API
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-            });
-           services.AddDbContext<DataContext>(opt => {
-               opt.UseSqlite(_config.GetConnectionString("DefaultConnection"));
-           });
-           services.AddCors(opt => {
-               opt.AddPolicy("CorsPolicy", policy => {
-                   policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
-               });
-           });
-           services.AddMediatR(typeof(List.Handler).Assembly);
-           services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+            services.AddApplicationServices(_config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,13 +50,9 @@ namespace API
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseCors("CorsPolicy");
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
