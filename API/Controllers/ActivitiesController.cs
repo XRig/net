@@ -27,10 +27,17 @@ namespace API.Controllers
             return Ok(await Mediator.Send(new Create.Command { Project = project }));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> EditProject(Guid id, Project project) {
+        [HttpPut("{id}")]
+        public async Task<IActionResult> EditProject(Guid id, Project project)
+        {
             project.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Project = project}));
+            return Ok(await Mediator.Send(new Edit.Command { Project = project }));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProject(Guid id)
+        {
+            return Ok(await Mediator.Send(new Delete.Command { Id = id }));
         }
     }
 }
