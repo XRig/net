@@ -1,14 +1,15 @@
 import React from 'react'
-import { Button, Card, Icon } from 'semantic-ui-react'
+import { Button, Card} from 'semantic-ui-react'
 import { Project } from '../../../app/models/project'
 
 interface Props {
   project:Project
   cancelSelectProject:()=>void;
+  openForm:(id:string) => void;
 }
 
 function ProjectDetails(props: Props) {
-  const {project,cancelSelectProject} = props
+  const {project,cancelSelectProject, openForm} = props
 
   return (
     <Card fluid>
@@ -24,7 +25,7 @@ function ProjectDetails(props: Props) {
     </Card.Content>
     <Card.Content extra>
       <Button.Group widths='2'>
-        <Button basic color='blue' content='Edit'/>
+        <Button onClick={()=>{openForm(project.id)}} basic color='blue' content='Edit'/>
         <Button onClick={()=>cancelSelectProject()} basic color='grey' content='Cancel'/>
       </Button.Group>
     </Card.Content>

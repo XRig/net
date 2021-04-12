@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import { Project } from '../../../app/models/project'
 import ProjectDetails from '../details/ProjectDetails'
 import ProjectForm from '../forms/ProjectForm'
@@ -7,25 +7,39 @@ import ProjectList from './ProjectList'
 
 interface Props {
   projects: Project[];
-  selectedProject: Project|undefined;
+  selectedProject: Project | undefined;
   selectProject: (id: string) => void;
   cancelSelectProject: () => void;
+  editMode: boolean;
+  openForm: (id: string) => void;
+  closeForm: () => void;
+  createOrEdit: (project: Project) => void
+  deleteProject:(id:string) =>void
 }
 
 function ProjectDashboard(props: Props) {
-  const { projects, selectedProject, selectProject, cancelSelectProject } = props
+  const { projects, selectedProject, selectProject, cancelSelectProject, editMode, openForm, closeForm, createOrEdit,deleteProject } = props
 
   return (
     <Grid>
       <Grid.Column width='10'>
-        <ProjectList projects={projects} selectProject={selectProject} />
+        <ProjectList projects={projects} selectProject={selectProject} deleteProject={deleteProject} />
       </Grid.Column>
       <Grid.Column width='6'>
         {
-         selectedProject &&
-          <ProjectDetails project={selectedProject} cancelSelectProject={cancelSelectProject} />
+          selectedProject && !editMode &&
+          <ProjectDetails project={selectedProject}
+            cancelSelectProject={cancelSelectProject}
+            openForm={openForm}
+          />
         }
-        <ProjectForm />
+        {editMode &&
+          <ProjectForm
+            closeForm={closeForm}
+            project={selectedProject}
+            createOrEdit={createOrEdit}
+          />
+        }
       </Grid.Column>
     </Grid>
   )

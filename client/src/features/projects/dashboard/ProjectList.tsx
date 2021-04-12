@@ -5,10 +5,11 @@ import { Project } from '../../../app/models/project'
 interface Props {
   projects: Project[];
   selectProject: (id: string) => void;
+  deleteProject: (id: string) => void;
 }
 
 function ProjectList(props: Props) {
-  const { projects, selectProject } = props
+  const { projects, selectProject, deleteProject } = props
 
   return (
     <Segment>
@@ -25,6 +26,7 @@ function ProjectList(props: Props) {
               </Item.Description>
               <Item.Extra>
                 <Button onClick={() => selectProject(project.id)} floated='right' content='View' color='blue' />
+                <Button onClick={() =>deleteProject(project.id)} floated='right' content='Delete' color='red' />
 
               </Item.Extra>
             </Item.Content>
